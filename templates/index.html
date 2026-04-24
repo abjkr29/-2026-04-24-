@@ -17,9 +17,8 @@
                     <span class="bg-yellow-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
                 {% elif skill == "bash" %}
                     <span class="bg-orange-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
-                {% elif not skill_name or not skill_name.strip()%}
-                {% else %}
-                    <span class="bg-gray-500 text-white px-3 py-1 rounded-full">[ETC] {{ skill }}</span>
+                {% elif skill: %}
+                     <span class="bg-gray-500 text-white px-3 py-1 rounded-full">[ETC] {{ skill }}</span>
                 {% endif %}
             {% endfor %}
         </ul>
