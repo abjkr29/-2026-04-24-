@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>내 기술 스택</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-8">
+    <div>
+        <h2 class="mt-9 text-xl font-bold">입력한 데이터 </h2>
+        <ul>
+            {% for skill in messages %}
+                {% if skill == "python" %}
+                    <span class="bg-red-500 text-white px-3 py-1 rounded-full">[backend] {{ skill }}</span>
+                {% elif skill == "sql" %}
+                    <span class="bg-indigo-500 text-white px-3 py-1 rounded-full">[DB] {{ skill }}</span>
+                {% elif skill == "html" %}
+                    <span class="bg-yellow-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+                {% elif skill == "bash" %}
+                    <span class="bg-orange-500 text-white px-3 py-1 rounded-full">{{ skill }}</span>
+                {% elif not skill_name or not skill_name.strip()%}
+                {% else %}
+                    <span class="bg-gray-500 text-white px-3 py-1 rounded-full">[ETC] {{ skill }}</span>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <form action="/send" method="POST" class="mt-8">
+        <input type="text" name="skill" placeholder="예: Python" class="border px-3 py-2 rounded">
+        <button type="submit" class="bg-black text-white px-3 py-2 rounded">전송</button>
+    </form>
+</body>
+</html>
